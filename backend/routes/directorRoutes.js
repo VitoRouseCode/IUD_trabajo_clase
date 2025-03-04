@@ -47,7 +47,7 @@ router.post('/', [
         director.status = req.body.status;
 
         await director.save();                
-        res.json({ message: 'Director creado correctamente', status: 'success', director: director });
+        res.status(201).json({ message: 'Director creado correctamente', status: 'success', director: director });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'Hubo un error al crear el director' });

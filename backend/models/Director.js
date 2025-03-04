@@ -13,7 +13,7 @@ const directorSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now       // Fecha actual al crear
+    default: Date.now       
   },
   updatedAt: {
     type: Date,

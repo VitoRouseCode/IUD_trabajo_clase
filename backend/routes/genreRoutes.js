@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     res.json(genres);                  
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Hubo un error al obtener los géneros' });
+    res.status(500).json({ message: 'Hubo un error al obtener los géneros'});
   }
   
 });
@@ -84,7 +84,7 @@ router.delete('/:id',async (req, res)=>{
         if(!genre){
             return res.status(404).json({message: 'Genre not found'});
         }
-        await genre.deleteOne();
+        await genre.deleteOne(); //remove()
         res.json({message: `Genre ${genre.name} deleted successfully`});
     }catch(error){
         console.log(error);
