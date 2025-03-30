@@ -1,11 +1,19 @@
 const express = require('express');
 const conectDB = require('./config/db_conect_mongo');
 const app = express();
-const port = 3000;
+const port = 3100;
 
 app.use(express.json()); // Middleware para parsear JSON en las peticiones
 
 conectDB();
+
+//politicas de cors
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  next();
+});
 
 
 app.use('/api/genres', require('./routes/genreRoutes'));

@@ -7,7 +7,7 @@ const router = Router();
 // GET: Listar todos los medios
 router.get('/', async (req, res) => {
   try {
-    const medias = await Media.find(); 
+    const medias = await Media.find().populate('genre').populate('director').populate('producer').populate('type'); 
     res.json(medias);                  
   } catch (error) {
     console.log(error);
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // GET: Listar un medio por ID
 router.get('/:id', async (req, res) => {
     try {
-        const media = await Media.findById(req.params.id); 
+        const media = await Media.findById(req.params.id).populate('genre').populate('director').populate('producer').populate('type'); 
         if (!media) {
             return res.status(404).json({ message: 'Media not found' });
         }

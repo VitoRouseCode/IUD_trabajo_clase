@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const conectdbmongo = async () => {
 
-const url = '';
+const url = ''
     try {
         await mongoose.connect(url);
         console.log('Conexión a la base de datos establecida.');
