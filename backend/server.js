@@ -1,7 +1,9 @@
 const express = require('express');
 const conectDB = require('./config/db_conect_mongo');
 const app = express();
-const port = 3100;
+require('dotenv').config(); 
+const portConf = process.env.PORT; 
+const port = portConf;
 
 app.use(express.json()); // Middleware para parsear JSON en las peticiones
 
